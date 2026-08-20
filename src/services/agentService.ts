@@ -122,7 +122,7 @@ export class AgentService {
     if (executedTool === 'search_projects') {
       return `I've queried the projects database. Here are Srikant's flagship AI applications:
 
-### 🌟 1. [AuraBrand & Autonomous Personal Agent](https://github.com/srikant-dev/personal-ai-agent)
+### 🌟 1. [AuraBrand & Autonomous Personal Agent](https://github.com/srikant-90/internship-capestone)
 * **What it is:** The complete personal brand web platform with dual-engine autonomous streaming agent and active network resilience failure-injection sandbox.
 * **Tech Stack:** React 19, TypeScript, Vite, SSE Streaming, LangGraph Tool Handlers, CSS Design Tokens.
 * **Key Metric:** **120 FPS** token render rate, **<150ms TTFT**, 100% offline resilient fallback.

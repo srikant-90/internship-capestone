@@ -86,10 +86,10 @@ task1/
 ### Installation
 ```bash
 # Clone the repository
-git clone https://github.com/srikant-dev/personal-ai-agent.git
+git clone https://github.com/srikant-90/internship-capestone.git
 
 # Navigate to project directory
-cd personal-ai-agent
+cd internship-capestone
 
 # Install dependencies
 npm install

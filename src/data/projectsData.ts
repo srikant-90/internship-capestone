@@ -26,7 +26,7 @@ export const PROJECTS_DATA: Project[] = [
       'Markdown prose renderer with syntax-highlighted code blocks, copy actions, and JSON transcript export.',
       'Full-spectrum responsive layout with fluid CSS variables and accessible dark/light themes.',
     ],
-    githubUrl: 'https://github.com/srikant-dev/personal-ai-agent',
+    githubUrl: 'https://github.com/srikant-90/internship-capestone',
     liveDemoUrl: '#',
     demoType: 'agentforge',
     featured: true,

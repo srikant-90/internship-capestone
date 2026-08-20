@@ -9,7 +9,7 @@ export const PERSONAL_INFO = {
   status: 'Ready to ship with FlyRank AI team',
   location: 'Bangalore, India / Remote',
   email: 'srikant.ai.eng@gmail.com',
-  github: 'https://github.com/srikant-dev/personal-ai-agent',
+  github: 'https://github.com/srikant-90/internship-capestone',
   linkedin: 'https://linkedin.com/in/srikant-ai',
   twitter: 'https://twitter.com/srikant_ai',
   availability: 'Immediate availability for Frontend Engineer Internship',
