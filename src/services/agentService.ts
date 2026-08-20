@@ -1,5 +1,5 @@
-import { AgentConfig, AgentToolCall, ChatMessage } from '../types';
-import { AGENT_KNOWLEDGE_BASE, executeSimulatedTool } from '../data/agentKnowledge';
+import type { AgentConfig, AgentToolCall, ChatMessage } from '../types';
+import { executeSimulatedTool } from '../data/agentKnowledge';
 import { networkManager } from './networkManager';
 
 export interface StreamEvent {
@@ -49,7 +49,7 @@ export class AgentService {
     let toolToRun: AgentToolCall['toolName'] | null = null;
     let toolArgs: Record<string, any> = {};
 
-    if (query.includes('project') || query.includes('portfolio') || query.includes('build') || query.includes('agentforge') || query.includes('cognitivesearch')) {
+    if (query.includes('project') || query.includes('portfolio') || query.includes('build') || query.includes('agentforge') || query.includes('aurabrand') || query.includes('cognitivesearch')) {
       toolToRun = 'search_projects';
       toolArgs = { query: lastUserMessage };
     } else if (query.includes('stack') || query.includes('technology') || query.includes('framework') || query.includes('rag') || query.includes('model')) {
@@ -61,9 +61,9 @@ export class AgentService {
     } else if (query.includes('code') || query.includes('hook') || query.includes('typescript') || query.includes('stream') || query.includes('implement')) {
       toolToRun = 'generate_code';
       toolArgs = { topic: 'resilient-streaming-hook' };
-    } else if (query.includes('flyrank') || query.includes('fit') || query.includes('why') || query.includes('match') || query.includes('intern')) {
+    } else if (query.includes('flyrank') || query.includes('fit') || query.includes('why') || query.includes('match') || query.includes('intern') || query.includes('srikant')) {
       toolToRun = 'evaluate_fit';
-      toolArgs = { candidate: 'Alex Vance', role: 'FlyRank AI Frontend Engineer' };
+      toolArgs = { candidate: 'Srikant', role: 'FlyRank AI Frontend Engineer' };
     }
 
     // Step 1: Emit Tool Invocation if matched
@@ -120,54 +120,59 @@ export class AgentService {
     executedTool: AgentToolCall['toolName'] | null
   ): string {
     if (executedTool === 'search_projects') {
-      return `I've queried the projects database. Here are Alex's flagship AI applications:
+      return `I've queried the projects database. Here are Srikant's flagship AI applications:
 
-### 🌟 1. [AgentForge Studio](https://github.com/flyrank-candidate/agentforge-studio)
+### 🌟 1. [AuraBrand & Autonomous Personal Agent](https://github.com/srikant-dev/personal-ai-agent)
+* **What it is:** The complete personal brand web platform with dual-engine autonomous streaming agent and active network resilience failure-injection sandbox.
+* **Tech Stack:** React 19, TypeScript, Vite, SSE Streaming, LangGraph Tool Handlers, CSS Design Tokens.
+* **Key Metric:** **120 FPS** token render rate, **<150ms TTFT**, 100% offline resilient fallback.
+
+### 🌟 2. [AgentForge Studio](https://github.com/srikant-dev/agentforge-studio)
 * **What it is:** Multi-Agent DAG Execution & Visual Trace Inspector.
 * **Tech Stack:** React 19, TypeScript, LangGraph Core, SVG Graph Canvas, SSE Streaming.
 * **Key Metric:** **3.2x faster** agent loop execution and sub-20ms human approval latency.
 * **Why it matters:** Solves visibility into multi-agent non-deterministic loops with interactive step-by-step state inspection and time-travel rollbacks.
 
-### 🔍 2. [CognitiveSearch RAG Flow](https://github.com/flyrank-candidate/cognitivesearch-rag)
+### 🔍 3. [CognitiveSearch RAG Flow](https://github.com/srikant-dev/cognitivesearch-rag)
 * **What it is:** Hybrid Semantic & Keyword Search with interactive citation highlighter.
 * **Tech Stack:** Pinecone, Qdrant, Cohere Rerank, BM25 + Reciprocal Rank Fusion.
 * **Key Metric:** **94.8% Recall @ 5** at 142ms roundtrip latency.
 * **Why it matters:** Bridges raw retrieved chunks with interactive split-screen citation links in the UI.
 
-### ⚡ 3. [StreamPulse AI Terminal](https://github.com/flyrank-candidate/streampulse-ai)
+### ⚡ 4. [StreamPulse AI Terminal](https://github.com/srikant-dev/streampulse-ai)
 * **What it is:** Zero-jank ultra-low latency streaming client with token backpressure control.
 * **Tech:** ReadableStream, WebSockets, RequestAnimationFrame batching (120 FPS), offline IndexedDB queue.
 * **Key Metric:** **120 FPS** stutter-free rendering during 100+ tokens/sec LLM output bursts.
 
-You can test each of these directly in the **Live Interactive Demos** section below!`;
+You can test each of these directly in the **Live Interactive Demos** section on this page!`;
     }
 
     if (executedTool === 'evaluate_fit') {
-      return `### 🎯 Why Alex Vance is the Ideal Match for FlyRank AI
+      return `### 🎯 Why Srikant is the Ideal Match for FlyRank AI
 
 Based on the requirements for the **Frontend Engineer Internship**:
 
 1. **Full-Spectrum AI Stack Understanding**:
-   Alex doesn't just build static UI templates; he deeply understands how LLMs, SLMs, vector indices, and agentic workflows function under the hood. This enables him to design interfaces tailored to AI behavior.
+   Srikant doesn't just build static UI templates; he deeply understands how LLMs, SLMs, vector indices, and agentic workflows function under the hood. This enables him to design interfaces tailored to AI behavior.
 
 2. **Obsession with Streaming UX & Performance**:
-   AI interfaces live or die on responsiveness. Alex implements RequestAnimationFrame token batching, chunk ring-buffers, and optimistic UI mutations to guarantee **120 FPS fluid interactions**.
+   AI interfaces live or die on responsiveness. Srikant implements RequestAnimationFrame token batching, chunk ring-buffers, and optimistic UI mutations to guarantee **120 FPS fluid interactions**.
 
 3. **Resilience & Offline Handling**:
    Network drops, rate limits, and latency spikes are gracefully handled using exponential backoff, sequence recovery headers, and transparent user telemetry.
 
 4. **Product Velocity & Craft**:
-   From pixel-perfect responsive layouts to autonomous agent tool calling and interactive sandboxes, Alex ships complete, production-grade applications rapidly.`;
+   From pixel-perfect responsive layouts to autonomous agent tool calling and interactive sandboxes, Srikant ships complete, production-grade applications rapidly.`;
     }
 
     if (executedTool === 'check_availability') {
       return `### 📅 Interview Availability & Contact Details
 
 * **Status:** Available immediately for the **FlyRank AI Frontend Engineer Internship**.
-* **Direct Email:** [\`alex.vance.ai@gmail.com\`](mailto:alex.vance.ai@gmail.com)
-* **GitHub:** [github.com/flyrank-candidate](https://github.com/flyrank-candidate)
-* **LinkedIn:** [linkedin.com/in/alex-vance-ai](https://linkedin.com/in/alex-vance-ai)
-* **Timezones:** PST (San Francisco) / Flexible across global timezones.
+* **Direct Email:** [\`srikant.ai.eng@gmail.com\`](mailto:srikant.ai.eng@gmail.com)
+* **GitHub:** [github.com/srikant-dev](https://github.com/srikant-dev)
+* **LinkedIn:** [linkedin.com/in/srikant-ai](https://linkedin.com/in/srikant-ai)
+* **Timezones:** Flexible across global timezones (IST, PST, EST).
 * **Preferred Formats:** Technical architecture deep-dive, live pair programming, or portfolio walkthrough.
 
 Feel free to send a calendar invite or reach out via email directly!`;
@@ -236,9 +241,9 @@ This hook ensures zero unhandled promise rejections, cleans up streams on unmoun
     }
 
     if (query.includes('stack') || executedTool === 'get_ai_stack_info') {
-      return `### ⚡ Alex's Full AI Stack Mastery
+      return `### ⚡ Srikant's Full AI Stack Mastery
 
-Alex's engineering domain spans five foundational pillars:
+Srikant's engineering domain spans five foundational pillars:
 
 1. **Foundation Models & Inference:** Frontier LLM APIs (OpenAI, Claude, Gemini), Groq LPU low-latency inference, and local quantized model serving (vLLM, Ollama).
 2. **Agent Frameworks:** LangGraph cyclic state machines, ReAct loops, deterministic tool schemas, and human-in-the-loop approval workflows.
@@ -249,7 +254,7 @@ Alex's engineering domain spans five foundational pillars:
 Explore the interactive **AI Stack Visualizer** on this page for live code snippets and architecture diagrams!`;
     }
 
-    return `Hello! I am **Alex Vance's Personal AI Agent**. I can answer questions about Alex's engineering experience, walk you through his full AI Stack mastery, demonstrate live project architectures (like **AgentForge**, **CognitiveSearch**, and **StreamPulse**), and explain why Alex is an exceptional fit for the **FlyRank AI Frontend Engineer Internship**.
+    return `Hello! I am **Srikant's Personal AI Agent**. I can answer questions about Srikant's engineering experience, walk you through his full AI Stack mastery, demonstrate live project architectures (like **AuraBrand**, **AgentForge**, **CognitiveSearch**, and **StreamPulse**), and explain why Srikant is an exceptional fit for the **FlyRank AI Frontend Engineer Internship**.
 
 Feel free to ask a technical question or choose one of the suggested prompts below!`;
   }
@@ -270,7 +275,7 @@ Feel free to ask a technical question or choose one of the suggested prompts bel
           ? 'https://openrouter.ai/api/v1/chat/completions'
           : 'https://api.openai.com/v1/chat/completions';
 
-      const systemPrompt = `You are the autonomous Personal Brand & Engineering Agent representing Alex Vance, an exceptional AI Frontend Engineer applying for the FlyRank AI Frontend Engineer Internship. 
+      const systemPrompt = `You are the autonomous Personal Brand & Engineering Agent representing Srikant, an exceptional AI Frontend Engineer applying for the FlyRank AI Frontend Engineer Internship. 
 Candidate highlights:
 - Master of the AI stack: Foundation models (Groq/OpenAI), LangGraph agent loops, Vector DBs (Pinecone/Qdrant), Streaming UX (SSE/WebSockets), Observability (LangSmith).
 - Core philosophy: Low latency, 120 FPS token streaming, network resilience, exponential backoff, and modern responsive design.

@@ -78,14 +78,14 @@ export const Navbar: React.FC<NavbarProps> = ({
               justifyContent: 'center',
               color: 'var(--accent-cyan)',
               fontWeight: 800,
-              fontSize: '1.1rem',
+              fontSize: '1.05rem',
             }}
           >
-            AV
+            SK
           </div>
           <div>
             <div style={{ fontWeight: 800, fontSize: '0.98rem', letterSpacing: '-0.02em', color: 'var(--text-primary)' }}>
-              Alex Vance
+              Srikant
             </div>
             <div style={{ fontSize: '0.72rem', color: 'var(--accent-cyan)', fontWeight: 600, letterSpacing: '0.04em' }}>
               FLYRANK AI // CANDIDATE

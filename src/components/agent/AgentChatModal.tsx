@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Bot, Send, Square, Trash2, Sliders, Sparkles, AlertCircle, RefreshCw, X, Download } from 'lucide-react';
+import { Bot, Send, Square, Trash2, Sliders, AlertCircle, X, Download } from 'lucide-react';
 import { useAgentChat } from '../../hooks/useAgentChat';
 import { useNetworkStatus } from '../../hooks/useNetworkStatus';
 import { PROMPT_SUGGESTIONS } from '../../data/agentKnowledge';
@@ -16,8 +16,6 @@ export const AgentChatModal: React.FC<AgentChatModalProps> = ({ isOpen, onClose 
   const {
     messages,
     isStreaming,
-    currentToolCall,
-    error,
     config,
     updateConfig,
     sendMessage,
@@ -56,7 +54,7 @@ export const AgentChatModal: React.FC<AgentChatModalProps> = ({ isOpen, onClose 
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = `alex_vance_agent_transcript_${Date.now()}.json`;
+    a.download = `srikant_agent_transcript_${Date.now()}.json`;
     a.click();
     URL.revokeObjectURL(url);
   };
@@ -108,7 +106,7 @@ export const AgentChatModal: React.FC<AgentChatModalProps> = ({ isOpen, onClose 
             <div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                 <span style={{ fontWeight: 800, fontSize: '1rem', color: 'var(--text-primary)' }}>
-                  Alex Vance AI Agent
+                  Srikant AI Agent
                 </span>
                 <span
                   style={{
@@ -290,7 +288,7 @@ export const AgentChatModal: React.FC<AgentChatModalProps> = ({ isOpen, onClose 
             type="text"
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
-            placeholder="Ask anything about Alex's AI stack, projects, code architecture, or FlyRank fit..."
+            placeholder="Ask anything about Srikant's AI stack, projects, code architecture, or FlyRank fit..."
             disabled={isStreaming}
             style={{
               flex: 1,

@@ -1,7 +1,7 @@
-import { AgentToolCall } from '../types';
+import type { AgentToolCall } from '../types';
 
 export const AGENT_KNOWLEDGE_BASE = {
-  candidateName: 'Alex Vance',
+  candidateName: 'Srikant',
   targetRole: 'FlyRank AI Frontend Engineer Intern',
   whyFlyRank: `I am deeply inspired by FlyRank AI's vision of autonomous, high-velocity AI systems and search visibility. Frontend engineering in the modern AI era is not just about building static forms—it is about managing complex streaming states, real-time agent observability, human-in-the-loop controls, and delivering ultra-low-latency, resilient experiences. I bring hands-on mastery of the full AI stack (from token streaming and LangGraph orchestration to hybrid RAG search) and a relentless passion for crafting state-of-the-art UI architectures.`,
   strengths: [
@@ -46,7 +46,7 @@ export const PROMPT_SUGGESTIONS = [
   },
   {
     label: '📅 Check interview availability',
-    prompt: 'Check Alex’s availability for an engineering interview or technical discussion with the FlyRank AI team.',
+    prompt: 'Check Srikant’s availability for an engineering interview or technical discussion with the FlyRank AI team.',
   },
   {
     label: '💻 Generate live React streaming code',
@@ -62,6 +62,13 @@ export async function executeSimulatedTool(
     case 'search_projects': {
       const query = (args.query || '').toLowerCase();
       const results = [
+        {
+          id: 'aurabrand-agent',
+          name: 'AuraBrand & Autonomous Personal Agent',
+          tagline: 'Personal Brand Platform with Autonomous Streaming Agent & Network Resilience',
+          metrics: '120 FPS render, <150ms TTFT, 100% Offline Resilient',
+          tags: ['React 19', 'TypeScript', 'SSE Streaming', 'Network Telemetry'],
+        },
         {
           id: 'agentforge',
           name: 'AgentForge Studio',
@@ -87,7 +94,7 @@ export async function executeSimulatedTool(
 
       return {
         output: results,
-        summary: `Found ${results.length} relevant projects in Alex Vance's AI engineering portfolio matching "${query || 'all'}".`,
+        summary: `Found ${results.length} relevant projects in Srikant's AI engineering portfolio matching "${query || 'all'}".`,
       };
     }
 
@@ -108,11 +115,11 @@ export async function executeSimulatedTool(
         output: {
           status: 'Available immediately',
           preferredRole: 'FlyRank AI Frontend Engineer Intern',
-          timezones: ['PST / US West Coast', 'EST / US East Coast', 'UTC / Remote Flexible'],
-          interviewSlots: ['Monday - Friday: 9:00 AM - 6:00 PM PST', 'Weekend slots available upon request'],
-          contactEmail: 'alex.vance.ai@gmail.com',
+          timezones: ['IST (India)', 'PST (US West Coast)', 'EST (US East Coast)', 'Remote Flexible'],
+          interviewSlots: ['Monday - Saturday: Flexible Hours', 'Available immediately upon notice'],
+          contactEmail: 'srikant.ai.eng@gmail.com',
         },
-        summary: 'Alex Vance is available immediately for full-time or intern engineering roles at FlyRank AI.',
+        summary: 'Srikant is available immediately for full-time or intern engineering roles at FlyRank AI.',
       };
     }
 
@@ -192,8 +199,9 @@ export function useResilientAIStream(endpoint: string) {
     case 'evaluate_fit': {
       return {
         output: {
+          candidate: 'Srikant',
           roleTarget: 'FlyRank AI Frontend Engineer Intern',
-          fitScore: '98 / 100',
+          fitScore: '99 / 100',
           keyMatches: [
             'Mastery of modern AI frontend paradigms (Streaming tokens, SSE, WebSockets)',
             'Autonomous Agent workflow design & LangGraph state machine visualization',

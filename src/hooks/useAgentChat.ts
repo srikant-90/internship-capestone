@@ -1,12 +1,12 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
-import { AgentConfig, AgentToolCall, ChatMessage } from '../types';
+import type { AgentConfig, AgentToolCall, ChatMessage } from '../types';
 import { agentService } from '../services/agentService';
 import { storageService } from '../services/storageService';
 
 const INITIAL_WELCOME: ChatMessage = {
   id: 'msg_welcome',
   sender: 'agent',
-  content: `👋 **Welcome to Alex Vance's AI Brand & Autonomous Agent!**
+  content: `👋 **Welcome to Srikant's AI Brand & Autonomous Agent!**
 
 I am equipped with autonomous reasoning, project database querying, AI stack deep-dives, and interview scheduling handlers.
 
@@ -15,14 +15,18 @@ I am equipped with autonomous reasoning, project database querying, AI stack dee
 - *"Why are you the ideal frontend engineer intern for FlyRank AI?"*
 - *"Search and explain your top AI projects"*
 - *"Generate resilient React streaming code with exponential backoff"*
-- *"Check Alex's interview availability"*`,
+- *"Check Srikant's interview availability"*`,
   timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
 };
 
 export function useAgentChat() {
   const [messages, setMessages] = useState<ChatMessage[]>(() => {
     const saved = storageService.getChatHistory();
-    return saved.length > 0 ? saved : [INITIAL_WELCOME];
+    // If saved history was from previous candidate name, reset to new welcome
+    if (saved.length > 0 && !saved[0].content.includes('Alex Vance')) {
+      return saved;
+    }
+    return [INITIAL_WELCOME];
   });
   const [config, setConfig] = useState<AgentConfig>(() => storageService.getAgentConfig());
   const [isStreaming, setIsStreaming] = useState(false);

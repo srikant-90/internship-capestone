@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { ChatMessage } from '../../types';
+import type { ChatMessage } from '../../types';
 import { AgentToolCallView } from './AgentToolCallView';
-import { Bot, User, Copy, Check, RefreshCw, AlertTriangle } from 'lucide-react';
+import { Bot, User, RefreshCw } from 'lucide-react';
 import { Button } from '../common/Button';
 
 interface AgentMessageItemProps {
@@ -11,7 +11,6 @@ interface AgentMessageItemProps {
 
 export const AgentMessageItem: React.FC<AgentMessageItemProps> = ({ message, onRetry }) => {
   const isAgent = message.sender === 'agent';
-  const isSystem = message.sender === 'system';
 
   return (
     <div
@@ -47,7 +46,7 @@ export const AgentMessageItem: React.FC<AgentMessageItemProps> = ({ message, onR
         {/* Header */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.35rem' }}>
           <span style={{ fontWeight: 700, fontSize: '0.86rem', color: isAgent ? 'var(--accent-cyan)' : 'var(--text-primary)' }}>
-            {isAgent ? 'DevAgent (Alex Vance AI)' : 'You'}
+            {isAgent ? 'DevAgent (Srikant AI)' : 'You'}
           </span>
           <span style={{ fontSize: '0.72rem', color: 'var(--text-muted)' }}>
             {message.timestamp}
@@ -302,8 +301,7 @@ const CodeBlock: React.FC<{ code: string; language: string }> = ({ code, languag
             fontWeight: 600,
           }}
         >
-          {copied ? <Check size={13} /> : <Copy size={13} />}
-          <span>{copied ? 'Copied' : 'Copy Code'}</span>
+          {copied ? 'Copied' : 'Copy Code'}
         </button>
       </div>
       <pre

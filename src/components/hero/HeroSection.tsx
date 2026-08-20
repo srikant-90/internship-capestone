@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Bot, Cpu, Play, Terminal, ArrowRight, ShieldCheck, Zap, Layers, Sparkles, CheckCircle2 } from 'lucide-react';
+import { Bot, Cpu, Play, ShieldCheck, Zap, Layers } from 'lucide-react';
 import { PERSONAL_INFO } from '../../data/portfolioData';
 import { LiveStatusBadge } from './LiveStatusBadge';
 import { Button } from '../common/Button';
@@ -14,7 +14,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenAgent }) => {
     'Mounting LangGraph Agent Executor [OK]',
     'Establishing Resilient SSE Stream Buffer [OK]',
     'Connecting Pinecone Vector Index [1536-dim HNSW] [OK]',
-    'Personal AI Agent "DevAgent" online & ready.',
+    'Personal AI Agent "DevAgent" online & ready for Srikant.',
   ]);
 
   const [activePillarIndex, setActivePillarIndex] = useState(0);

@@ -1,6 +1,36 @@
-import { Project } from '../types';
+import type { Project } from '../types';
 
 export const PROJECTS_DATA: Project[] = [
+  {
+    id: 'aurabrand-agent',
+    title: 'AuraBrand & Autonomous Personal Agent',
+    tagline: 'Personal Brand Platform with Autonomous Streaming Agent & Network Resilience',
+    description: 'A cutting-edge personal brand web application and live autonomous AI Agent engineered for FlyRank AI. Features dual-mode inference (Smart Simulated Engine + Live Groq/OpenAI SSE), autonomous tool execution, and an active network resilience failure-injection sandbox.',
+    category: 'agents',
+    tags: ['React 19', 'TypeScript', 'Vite', 'SSE Streaming', 'LangGraph Tools', 'Network Telemetry', 'CSS Design Tokens'],
+    metrics: [
+      { label: 'Token Render Rate', value: '120 FPS' },
+      { label: 'Time To First Token', value: '< 150ms' },
+      { label: 'Network Resilience', value: '100% Offline Fallback' },
+    ],
+    architectureOverview: 'Event-driven React 19 architecture featuring dual-mode inference routing, exponential backoff with jitter, Web Worker streaming batching, and reactive network telemetry.',
+    architectureSteps: [
+      'User prompts agent -> Intent analyzer identifies query category and triggers corresponding autonomous tool handler.',
+      'Agent executes simulated/live tool pipeline (e.g. project query, fit evaluation, code synthesis).',
+      'Inference engine streams tokens via ReadableStream, batching DOM updates using RequestAnimationFrame.',
+      'Network manager continuously checks packet roundtrip; if dropped, client triggers exponential retry and offline fallback.',
+    ],
+    features: [
+      'Dual-engine execution: switchable between autonomous simulated reasoning and live Groq/OpenAI SSE keys.',
+      'Interactive Network Diagnostics sandbox with real-time latency ping and failure mode injection.',
+      'Markdown prose renderer with syntax-highlighted code blocks, copy actions, and JSON transcript export.',
+      'Full-spectrum responsive layout with fluid CSS variables and accessible dark/light themes.',
+    ],
+    githubUrl: 'https://github.com/srikant-dev/personal-ai-agent',
+    liveDemoUrl: '#',
+    demoType: 'agentforge',
+    featured: true,
+  },
   {
     id: 'agentforge',
     title: 'AgentForge Studio',
@@ -26,7 +56,7 @@ export const PROJECTS_DATA: Project[] = [
       'Tool execution sandbox with simulated API payloads and mocking.',
       'Time-travel replay of prior agent steps with rollback capability.',
     ],
-    githubUrl: 'https://github.com/flyrank-candidate/agentforge-studio',
+    githubUrl: 'https://github.com/srikant-dev/agentforge-studio',
     liveDemoUrl: '#',
     demoType: 'agentforge',
     featured: true,
@@ -56,7 +86,7 @@ export const PROJECTS_DATA: Project[] = [
       'Dynamic threshold slider adjusting cosine similarity sensitivity in real time.',
       'Exportable groundness evaluation metrics and token consumption breakdown.',
     ],
-    githubUrl: 'https://github.com/flyrank-candidate/cognitivesearch-rag',
+    githubUrl: 'https://github.com/srikant-dev/cognitivesearch-rag',
     liveDemoUrl: '#',
     demoType: 'cognitive_search',
     featured: true,
@@ -86,10 +116,10 @@ export const PROJECTS_DATA: Project[] = [
       'Offline queue: compose messages offline, automatically dispatched upon reconnection.',
       'Syntax-highlighted code blocks with one-click copy, run, and diff viewer.',
     ],
-    githubUrl: 'https://github.com/flyrank-candidate/streampulse-ai',
+    githubUrl: 'https://github.com/srikant-dev/streampulse-ai',
     liveDemoUrl: '#',
     demoType: 'streampulse',
-    featured: true,
+    featured: false,
   },
   {
     id: 'promptlab',
@@ -116,7 +146,7 @@ export const PROJECTS_DATA: Project[] = [
       'Cost calculator estimating monthly expense across 10k to 10M API invocations.',
       'One-click prompt compression removing unnecessary filler tokens.',
     ],
-    githubUrl: 'https://github.com/flyrank-candidate/promptlab-studio',
+    githubUrl: 'https://github.com/srikant-dev/promptlab-studio',
     liveDemoUrl: '#',
     demoType: 'promptlab',
     featured: false,

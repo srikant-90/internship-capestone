@@ -50,13 +50,13 @@ export const Footer: React.FC<{ onOpenAgent: () => void }> = ({ onOpenAgent }) =
                   justifyContent: 'center',
                   color: 'var(--accent-cyan)',
                   fontWeight: 800,
-                  fontSize: '0.9rem',
+                  fontSize: '0.85rem',
                 }}
               >
-                AV
+                SK
               </div>
               <span style={{ fontWeight: 800, fontSize: '1.1rem', color: 'var(--text-primary)' }}>
-                Alex Vance
+                Srikant
               </span>
             </div>
             <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: 1.6, marginBottom: '1.25rem' }}>
